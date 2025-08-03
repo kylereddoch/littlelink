@@ -112,8 +112,8 @@
 
 /* Avatar */
 .avatar {
-	width: 8rem;             /* 128px */
-	height: 8rem;
+	width: 8.5rem;             /* 128px */
+	height: 8.5rem;            /* 128px */
 	border-radius: 50%;
 	object-fit: cover;
 	background-position: center;
@@ -125,33 +125,37 @@
 
 /* Typography Scale */
 h1 {
-	margin:0 0 var(--spacing-m) 0;
+	margin:0 0 var(--spacing-xs) 0;
 	font-size:var(--scale-5);           /* ~49px */
   	font-weight:800;
 	line-height:1.1;
 	letter-spacing:-0.02em;
 	word-wrap:break-word;
 	overflow-wrap:break-word;
+	color: #cba6f7;
 }
 body {
 	font-size:var(--scale-1);           /* 20px */
   	line-height:1.6;
 }
 .container p {
-	margin:0 0 var(--spacing-xl) 0;
+	margin:var(--spacing-m) 0 var(--spacing-xl) 0;
 	font-size:var(--scale-1);
 	line-height:1.6;
 }
 
 /* Container spacing */
 .container {
-	padding:var(--spacing-xl) var(--spacing-m) 0 var(--spacing-m);
+	padding:var(--spacing-xl) var(--spacing-m) var(--spacing-m) var(--spacing-m);
 	text-align:center;
+	background: #181825;
+	margin: var(--spacing-m) auto;
+	border-radius: 1em;
 }
 
 /* Footer */
 footer {
-	margin:var(--spacing-xxl) 0;            /* 4rem (64px) top and bottom */
+	margin:var(--spacing-xl) 0;            /* 4rem (64px) top and bottom */
     font-size:var(--scale-0);
 }
 
@@ -221,8 +225,8 @@ a:hover {
 /* Avatar
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .avatar {
-	width: 8rem;             /* 128px */
-	height: 8rem;
+	width: 8.5rem;             /* 128px */
+	height: 8.5rem;
 	object-fit: cover;
 	background-position: center;
 	margin-bottom: var(--spacing-l);
@@ -256,14 +260,14 @@ a:hover {
 	outline-offset: 2px;
   }
 :root.theme-dark body {
-	background-color:#121212;
+	background-color:#1e1e2e;
 	color:#ffffff;
 }
 :root.theme-dark a:not(.button) {
-	color:#4899F7;
+	color:#eba0ac;
 }
 :root.theme-dark a:not(.button):hover {
-	color:#7AB8FF;
+	color:#f2cdcd;
 }
 
 /* Auto theme */
@@ -323,6 +327,7 @@ h3 {
 	font-size:var(--scale-2);
 	font-weight:600;
 	margin:var(--spacing-l) 0 var(--spacing-s) 0;
+	color: #b4befe;;
 }
 ul {
 	list-style:none;
@@ -331,6 +336,29 @@ ul {
 }
 ul li {
 	margin-bottom:var(--spacing-xs);
+}
+
+/* Weather Icon Styles */
+
+.current-weather {
+		margin-top: 0; /* Space above the weather section */
+}
+
+.current-weather img {
+	display:inline !important;
+}
+
+.weather-icon {
+        width: 40px; /* Adjust the width as needed */
+        height: 40px; /* Adjust the height as needed */
+        vertical-align: middle;
+        margin-bottom: 5px;
+}
+
+/* Now Playing Section Styles */
+
+#now-playing {
+		margin-bottom: var(--spacing-l);
 }
 
 /* Privacy page specific responsive adjustments */
