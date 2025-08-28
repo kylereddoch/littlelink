@@ -24,26 +24,28 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      # Optional but recommended: ensure .nojekyll (prevents Jekyll from hiding folders like /assets)
-      - name: Add .nojekyll
-        run: touch .nojekyll
+      - name: Prepare publish directory
+        run: |
+          set -e
+          mkdir _publish
+          # Copy everything from root except what we don't want to deploy
+          rsync -av \
+            --exclude '.git' \
+            --exclude '.github' \
+            --exclude 'README.md' \
+            --exclude 'LICENSE' \
+            ./ _publish/
 
-      # Optional: keep a CNAME file in the repo for human clarity;
-      # GitHub Pages remembers your custom domain via Settings, so CNAME is not required when deploying via Actions.
-      # echo "links.yourdomain.tld" > CNAME
+          # Optional: ensure Pages niceties
+          touch _publish/.nojekyll
+          # echo "links.yourdomain.tld" > _publish/CNAME  # if you want to ship a CNAME file
 
-      # Upload everything in the root, excluding the .git and workflow dir
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: |
-            .
-          # Exclusions (globs)
-          exclude: |
-            **/.git/**
-            .github/**
-            README.md
-            LICENSE
+          path: _publish
+          name: github-pages
+          retention-days: 1
 
   deploy:
     needs: build
